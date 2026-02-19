@@ -7,7 +7,7 @@ Signature = "$Windows NT$"
 Class = Net
 ClassGUID = {4D36E972-E325-11CE-BFC1-08002BE10318}
 Provider = %Wintun.CompanyName%
-CatalogFile.NT = wintun.cat
+CatalogFile.NT = twintun.cat
 PnpLockdown = 1
 
 [Manufacturer]
@@ -17,17 +17,17 @@ PnpLockdown = 1
 1 = %Wintun.DiskDesc%, "", ,
 
 [SourceDisksFiles]
-wintun.sys = 1
+twintun.sys = 1
 
 [DestinationDirs]
 DefaultDestDir = 12
 Wintun.CopyFiles.Sys = 12
 
 [Wintun.CopyFiles.Sys]
-wintun.sys, , , 0x00004002 ; COPYFLG_IN_USE_RENAME | COPYFLG_NOSKIP
+twintun.sys, , , 0x00004002 ; COPYFLG_IN_USE_RENAME | COPYFLG_NOSKIP
 
 [Wintun.NT$ARCH$]
-%Wintun.DeviceDesc% = Wintun.Install, Wintun
+%Wintun.DeviceDesc% = Wintun.Install, TwinTun
 
 [Wintun.Install]
 Characteristics = 0x1 ; NCF_VIRTUAL
@@ -40,13 +40,13 @@ CopyFiles = Wintun.CopyFiles.Sys
 EnableDhcp = 0 ; Disable DHCP
 
 [Wintun.Properties]
-DeviceVendorWebsite,,,,"https://www.wintun.net/"
+DeviceVendorWebsite,,,,"https://www.twingate.com/"
 
 [Wintun.Install.Services]
-AddService = wintun, 2, Wintun.Service, Wintun.EventLog ; 2=SPSVCINST_ASSOCSERVICE
+AddService = twintun, 2, Wintun.Service, Wintun.EventLog ; 2=SPSVCINST_ASSOCSERVICE
 
 [Wintun.Ndi]
-HKR, Ndi, Service, 0, wintun
+HKR, Ndi, Service, 0, twintun
 HKR, Ndi\Interfaces, UpperRange, , "ndis5"
 HKR, Ndi\Interfaces, LowerRange, , "nolower"
 
@@ -56,14 +56,14 @@ Description = %Wintun.DeviceDesc%
 ServiceType = 1 ; SERVICE_KERNEL_DRIVER
 StartType = 3 ; SERVICE_DEMAND_START
 ErrorControl = 1 ; SERVICE_ERROR_NORMAL
-ServiceBinary = %12%\wintun.sys
+ServiceBinary = %12%\twintun.sys
 
 [Wintun.EventLog]
-HKR, , EventMessageFile, 0x00020000, "%11%\IoLogMsg.dll;%12%\wintun.sys"
+HKR, , EventMessageFile, 0x00020000, "%11%\IoLogMsg.dll;%12%\twintun.sys"
 HKR, , TypesSupported, 0x00010001, 7
 
 [Strings]
 Wintun.Name = "Wintun"
-Wintun.DiskDesc = "Wintun Driver Install Disk"
-Wintun.DeviceDesc = "Wintun Userspace Tunnel"
-Wintun.CompanyName = "WireGuard LLC"
+Wintun.DiskDesc = "Twingate Driver Install Disk"
+Wintun.DeviceDesc = "Twingate Wintun Userspace Tunnel"
+Wintun.CompanyName = "Twingate Inc."

@@ -22,15 +22,15 @@ BEGIN
   BEGIN
     BLOCK "040904b0"
     BEGIN
-      VALUE "CompanyName", "WireGuard LLC"
-      VALUE "FileDescription", "Wintun Driver"
+      VALUE "CompanyName", "Twingate Inc."
+      VALUE "FileDescription", "Twingate Wintun Driver"
       VALUE "FileVersion", EXPAND(WINTUN_VERSION)
-      VALUE "InternalName", "wintun.sys"
-      VALUE "LegalCopyright", "Copyright \xa9 2018-2021 WireGuard LLC. All Rights Reserved."
-      VALUE "OriginalFilename", "wintun.sys"
-      VALUE "ProductName", "Wintun Driver"
+      VALUE "InternalName", "twintun.sys"
+      VALUE "LegalCopyright", "Copyright \xa9 2026 Twingate Inc. All Rights Reserved."
+      VALUE "OriginalFilename", "twintun.sys"
+      VALUE "ProductName", "Twingate Wintun Driver"
       VALUE "ProductVersion", EXPAND(WINTUN_VERSION)
-      VALUE "Comments", "https://www.wintun.net/"
+      VALUE "Comments", "https://www.twingate.com/"
     END
   END
   BLOCK "VarFileInfo"
