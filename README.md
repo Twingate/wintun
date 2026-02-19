@@ -1,15 +1,15 @@
-# [Wintun Network Adapter](https://www.wintun.net/)
+# Twingate Wintun Network Adapter
 ### TUN Device Driver for Windows
 
 This is a layer 3 TUN driver for Windows 7, 8, 8.1, 10, and 11. Originally created for [WireGuard](https://www.wireguard.com/), it is intended to be useful to a wide variety of projects that require layer 3 tunneling devices with implementations primarily in userspace.
 
 ## Installation
 
-Wintun is deployed as a platform-specific `wintun.dll` file. Install the `wintun.dll` file side-by-side with your application. Download the dll from [wintun.net](https://www.wintun.net/), alongside the header file for your application described below.
+Wintun is deployed as a platform-specific `wintun.dll` file. Install the `wintun.dll` file side-by-side with your application, alongside the header file for your application described below.
 
 ## Usage
 
-Include the [`wintun.h` file](https://git.zx2c4.com/wintun/tree/api/wintun.h) in your project simply by copying it there and dynamically load the `wintun.dll` using [`LoadLibraryEx()`](https://docs.microsoft.com/en-us/windows/win32/api/libloaderapi/nf-libloaderapi-loadlibraryexa) and [`GetProcAddress()`](https://docs.microsoft.com/en-us/windows/win32/api/libloaderapi/nf-libloaderapi-getprocaddress) to resolve each function, using the typedefs provided in the header file. The [`InitializeWintun` function in the example.c code](https://git.zx2c4.com/wintun/tree/example/example.c) provides this in a function that you can simply copy and paste.
+Include the [`wintun.h` file](https://github.com/Twingate/wintun/tree/master/api/wintun.h) in your project simply by copying it there and dynamically load the `wintun.dll` using [`LoadLibraryEx()`](https://docs.microsoft.com/en-us/windows/win32/api/libloaderapi/nf-libloaderapi-loadlibraryexa) and [`GetProcAddress()`](https://docs.microsoft.com/en-us/windows/win32/api/libloaderapi/nf-libloaderapi-getprocaddress) to resolve each function, using the typedefs provided in the header file. The [`InitializeWintun` function in the example.c code](https://github.com/Twingate/wintun/tree/example/example.c) provides this in a function that you can simply copy and paste.
 
 With the library setup, Wintun can then be used by first creating an adapter, configuring it, and then setting its status to "up". Adapters have names (e.g. "OfficeNet") and types (e.g. "Wintun").
 
@@ -25,7 +25,7 @@ After creating an adapter, we can use it by starting a session:
 WINTUN_SESSION_HANDLE Session = WintunStartSession(Adapter2, 0x400000);
 ```
 
-Then, the `WintunAllocateSendPacket` and `WintunSendPacket` functions can be used for sending packets ([used by `SendPackets` in the example.c code](https://git.zx2c4.com/wintun/tree/example/example.c)):
+Then, the `WintunAllocateSendPacket` and `WintunSendPacket` functions can be used for sending packets ([used by `SendPackets` in the example.c code](https://github.com/Twingate/wintun/tree/example/example.c)):
 
 ```C
 BYTE *OutgoingPacket = WintunAllocateSendPacket(Session, PacketDataSize);
@@ -38,7 +38,7 @@ else if (GetLastError() != ERROR_BUFFER_OVERFLOW) // Silently drop packets if th
     Log(L"Packet write failed");
 ```
 
-And the `WintunReceivePacket` and `WintunReleaseReceivePacket` functions can be used for receiving packets ([used by `ReceivePackets` in the example.c code](https://git.zx2c4.com/wintun/tree/example/example.c)):
+And the `WintunReceivePacket` and `WintunReleaseReceivePacket` functions can be used for receiving packets ([used by `ReceivePackets` in the example.c code](https://github.com/Twingate/wintun/tree/example/example.c)):
 
 ```C
 for (;;)
@@ -62,7 +62,7 @@ for (;;)
 
 Some high performance use cases may want to spin on `WintunReceivePacket` for a number of cycles before falling back to waiting on the read-wait event.
 
-You are **highly encouraged** to read the [**example.c short example**](https://git.zx2c4.com/wintun/tree/example/example.c) to see how to put together a simple userspace network tunnel.
+You are **highly encouraged** to read the [**example.c short example**](https://github.com/Twingate/wintun/tree/example/example.c) to see how to put together a simple userspace network tunnel.
 
 The various functions and definitions are [documented in the reference below](#Reference).
 
@@ -325,7 +325,7 @@ Sends the packet and releases internal buffer. WintunSendPacket is thread-safe, 
 
 ## Building
 
-**Do not distribute drivers or files named "Wintun", as they will most certainly clash with official deployments. Instead distribute [`wintun.dll` as downloaded from wintun.net](https://www.wintun.net).**
+**Do not distribute drivers or files named "Wintun" or "Twintun", as they will most certainly clash with official deployments.**
 
 General requirements:
 
@@ -336,4 +336,4 @@ General requirements:
 
 ## License
 
-The entire contents of [the repository](https://git.zx2c4.com/wintun/), including all documentation and example code, is "Copyright © 2018-2021 WireGuard LLC. All Rights Reserved." Source code is licensed under the [GPLv2](COPYING). Prebuilt binaries from [wintun.net](https://www.wintun.net/) are released under a more permissive license suitable for more forms of software contained inside of the .zip files distributed there.
+The entire contents of [the repository](https://github.com/Twingate/wintun/), including all documentation and example code, is "Copyright © 2018-2021 WireGuard LLC. All Rights Reserved." Source code is licensed under the [GPLv2](COPYING).

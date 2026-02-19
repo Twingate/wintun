@@ -8,15 +8,15 @@
 
 #pragma code_page(1252)
 
-wintun.cat RCDATA "driver\\wintun.cat"
-wintun.inf RCDATA "driver\\wintun.inf"
-wintun.sys RCDATA "driver\\wintun.sys"
+wintun.cat RCDATA "driver\\twintun.cat"
+wintun.inf RCDATA "driver\\twintun.inf"
+wintun.sys RCDATA "driver\\twintun.sys"
 
 #if defined(WANT_AMD64_WOW64)
 #    if defined(BUILT_AMD64_WOW64)
-wintun-amd64.cat RCDATA "amd64\\driver\\wintun.cat"
-wintun-amd64.inf RCDATA "amd64\\driver\\wintun.inf"
-wintun-amd64.sys RCDATA "amd64\\driver\\wintun.sys"
+wintun-amd64.cat RCDATA "amd64\\driver\\twintun.cat"
+wintun-amd64.inf RCDATA "amd64\\driver\\twintun.inf"
+wintun-amd64.sys RCDATA "amd64\\driver\\twintun.sys"
 setupapihost-amd64.dll RCDATA "amd64\\setupapihost.dll"
 #    else
 #        pragma message("AMD64 wintun.sys was not built, so this will not work from WOW64")
@@ -24,9 +24,9 @@ setupapihost-amd64.dll RCDATA "amd64\\setupapihost.dll"
 #endif
 #if defined(WANT_ARM64_WOW64)
 #    if defined(BUILT_ARM64_WOW64)
-wintun-arm64.cat RCDATA "arm64\\driver\\wintun.cat"
-wintun-arm64.inf RCDATA "arm64\\driver\\wintun.inf"
-wintun-arm64.sys RCDATA "arm64\\driver\\wintun.sys"
+wintun-arm64.cat RCDATA "arm64\\driver\\twintun.cat"
+wintun-arm64.inf RCDATA "arm64\\driver\\twintun.inf"
+wintun-arm64.sys RCDATA "arm64\\driver\\twintun.sys"
 setupapihost-arm64.dll RCDATA "arm64\\setupapihost.dll"
 #    else
 #        pragma message("ARM64 wintun.sys was not built, so this will not work from WOW64")
@@ -47,15 +47,15 @@ BEGIN
   BEGIN
     BLOCK "040904b0"
     BEGIN
-      VALUE "CompanyName", "WireGuard LLC"
-      VALUE "FileDescription", "Wintun API Library"
+      VALUE "CompanyName", "Twingate Inc."
+      VALUE "FileDescription", "Twingate Wintun API Library"
       VALUE "FileVersion", EXPAND(WINTUN_VERSION)
       VALUE "InternalName", "wintun.dll"
-      VALUE "LegalCopyright", "Copyright \xa9 2018-2021 WireGuard LLC. All Rights Reserved."
+      VALUE "LegalCopyright", "Copyright \xa9 2026 Twingate Inc. All Rights Reserved."
       VALUE "OriginalFilename", "wintun.dll"
-      VALUE "ProductName", "Wintun Driver"
+      VALUE "ProductName", "Twingate Wintun Driver"
       VALUE "ProductVersion", EXPAND(WINTUN_VERSION)
-      VALUE "Comments", "https://www.wintun.net/"
+      VALUE "Comments", "https://www.twingate.com/"
     END
   END
   BLOCK "VarFileInfo"

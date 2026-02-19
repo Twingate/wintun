@@ -11,7 +11,7 @@
 #include <cfgmgr32.h>
 #include <Windows.h>
 
-#define WINTUN_HWID L"Wintun"
+#define WINTUN_HWID L"TwinTun"
 #define WINTUN_ENUMERATOR (IsWindows7 ? L"ROOT\\" WINTUN_HWID : L"SWD\\" WINTUN_HWID)
 
 extern const DEVPROPKEY DEVPKEY_Wintun_Name;

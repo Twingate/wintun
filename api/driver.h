@@ -9,7 +9,7 @@
 #include <Windows.h>
 #include <SetupAPI.h>
 
-#define WINTUN_HWID L"Wintun"
+#define WINTUN_HWID L"TwinTun"
 
 typedef struct _SP_DEVINFO_DATA_LIST SP_DEVINFO_DATA_LIST;
 
