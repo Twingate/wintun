@@ -203,7 +203,7 @@ MaybeGetRunningDriverVersion(BOOL ReturnOneIfRunningInsteadOfVersion)
     for (ULONG i = Modules->NumberOfModules; i-- > 0;)
     {
         LPCSTR NtPath = (LPCSTR)Modules->Modules[i].FullPathName;
-        if (!_stricmp(&NtPath[Modules->Modules[i].OffsetToFileName], "wintun.sys"))
+        if (!_stricmp(&NtPath[Modules->Modules[i].OffsetToFileName], "twintun.sys"))
         {
             if (ReturnOneIfRunningInsteadOfVersion)
             {
@@ -380,9 +380,9 @@ DriverInstall(HDEVINFO *DevInfoExistingAdaptersForCleanup, SP_DEVINFO_DATA_LIST 
     WCHAR CatPath[MAX_PATH] = { 0 };
     WCHAR SysPath[MAX_PATH] = { 0 };
     WCHAR InfPath[MAX_PATH] = { 0 };
-    if (!PathCombineW(CatPath, RandomTempSubDirectory, L"wintun.cat") ||
-        !PathCombineW(SysPath, RandomTempSubDirectory, L"wintun.sys") ||
-        !PathCombineW(InfPath, RandomTempSubDirectory, L"wintun.inf"))
+    if (!PathCombineW(CatPath, RandomTempSubDirectory, L"twintun.cat") ||
+        !PathCombineW(SysPath, RandomTempSubDirectory, L"twintun.sys") ||
+        !PathCombineW(InfPath, RandomTempSubDirectory, L"twintun.inf"))
     {
         LastError = ERROR_BUFFER_OVERFLOW;
         goto cleanupDirectory;

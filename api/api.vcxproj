@@ -27,8 +27,8 @@
     </ClCompile>
     <ResourceCompile>
       <AdditionalIncludeDirectories>..\$(Configuration)\$(WintunPlatform);..\$(Configuration);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions Condition="Exists('..\$(Configuration)\arm64\driver\wintun.sys') And Exists('..\$(Configuration)\arm64\setupapihost.dll')">BUILT_ARM64_WOW64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <PreprocessorDefinitions Condition="Exists('..\$(Configuration)\amd64\driver\wintun.sys') And Exists('..\$(Configuration)\amd64\setupapihost.dll')">BUILT_AMD64_WOW64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="Exists('..\$(Configuration)\arm64\driver\twintun.sys') And Exists('..\$(Configuration)\arm64\setupapihost.dll')">BUILT_ARM64_WOW64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="Exists('..\$(Configuration)\amd64\driver\twintun.sys') And Exists('..\$(Configuration)\amd64\setupapihost.dll')">BUILT_AMD64_WOW64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessorDefinitions Condition="'$(Platform)'=='Win32'">WANT_ARM64_WOW64;WANT_AMD64_WOW64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessorDefinitions Condition="'$(Platform)'=='x64'">WANT_ARM64_WOW64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessorDefinitions Condition="'$(Platform)'=='ARM'">WANT_ARM64_WOW64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -79,8 +79,8 @@
   <PropertyGroup>
     <CleanDependsOn>CleanInfVersion;CleanNci;$(CleanDependsOn)</CleanDependsOn>
   </PropertyGroup>
-  <Target Name="BuildInfVersion" BeforeTargets="ClCompile" Inputs="$(OutDir)driver\wintun.inf" Outputs="$(IntDir)wintun-inf.h">
-    <Exec Command="cscript.exe /nologo &quot;extract-driverver.js&quot; &lt; &quot;$(OutDir)driver\wintun.inf&quot; &gt; &quot;$(IntDir)wintun-inf.h&quot;" />
+  <Target Name="BuildInfVersion" BeforeTargets="ClCompile" Inputs="$(OutDir)driver\twintun.inf" Outputs="$(IntDir)wintun-inf.h">
+    <Exec Command="cscript.exe /nologo &quot;extract-driverver.js&quot; &lt; &quot;$(OutDir)driver\twintun.inf&quot; &gt; &quot;$(IntDir)wintun-inf.h&quot;" />
   </Target>
   <Target Name="CleanInfVersion">
     <Delete Files="$(IntDir)wintun-inf.h" />

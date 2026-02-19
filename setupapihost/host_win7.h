@@ -6,7 +6,7 @@
 #include <devguid.h>
 #include <cfgmgr32.h>
 
-#define WINTUN_HWID L"Wintun"
+#define WINTUN_HWID L"TwinTun"
 
 VOID __stdcall CreateInstanceWin7(HWND hwnd, HINSTANCE hinst, LPSTR lpszCmdLine, int nCmdShow)
 {

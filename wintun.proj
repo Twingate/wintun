@@ -30,25 +30,25 @@
     Note: Use explicit Inputs/Outputs as WindowsDriver.Common.targets triggers driver re-packaging and signing on every invocation.
   -->
   <PropertyGroup>
-    <DriverInputs>driver\undocumented.h;driver\wintun.c;driver\wintun.inf;wintun.props;driver\wintun.rc;driver\driver.vcxproj;$(DriverInputs)</DriverInputs>
+    <DriverInputs>driver\undocumented.h;driver\twintun.c;driver\twintun.inf;wintun.props;driver\twintun.rc;driver\driver.vcxproj;$(DriverInputs)</DriverInputs>
   </PropertyGroup>
   <Target Name="Driver-x86"
-    Outputs="$(Configuration)\x86\driver\wintun.sys;$(Configuration)\x86\driver\wintun.inf;$(Configuration)\x86\driver\wintun.cat"
+    Outputs="$(Configuration)\x86\driver\twintun.sys;$(Configuration)\x86\driver\twintun.inf;$(Configuration)\x86\driver\twintun.cat"
     Inputs="$(DriverInputs)">
     <MSBuild Projects="driver\driver.vcxproj" Targets="Build" Properties="Configuration=$(Configuration);Platform=Win32" />
   </Target>
   <Target Name="Driver-amd64"
-    Outputs="$(Configuration)\amd64\driver\wintun.sys;$(Configuration)\amd64\driver\wintun.inf;$(Configuration)\amd64\driver\wintun.cat"
+    Outputs="$(Configuration)\amd64\driver\twintun.sys;$(Configuration)\amd64\driver\twintun.inf;$(Configuration)\amd64\driver\twintun.cat"
     Inputs="$(DriverInputs)">
     <MSBuild Projects="driver\driver.vcxproj" Targets="Build" Properties="Configuration=$(Configuration);Platform=x64" />
   </Target>
   <Target Name="Driver-arm"
-    Outputs="$(Configuration)\arm\driver\wintun.sys;$(Configuration)\arm\driver\wintun.inf;$(Configuration)\arm\driver\wintun.cat"
+    Outputs="$(Configuration)\arm\driver\twintun.sys;$(Configuration)\arm\driver\twintun.inf;$(Configuration)\arm\driver\twintun.cat"
     Inputs="$(DriverInputs)">
     <MSBuild Projects="driver\driver.vcxproj" Targets="Build" Properties="Configuration=$(Configuration);Platform=ARM" />
   </Target>
   <Target Name="Driver-arm64"
-    Outputs="$(Configuration)\arm64\driver\wintun.sys;$(Configuration)\arm64\driver\wintun.inf;$(Configuration)\arm64\driver\wintun.cat"
+    Outputs="$(Configuration)\arm64\driver\twintun.sys;$(Configuration)\arm64\driver\twintun.inf;$(Configuration)\arm64\driver\twintun.cat"
     Inputs="$(DriverInputs)">
     <MSBuild Projects="driver\driver.vcxproj" Targets="Build" Properties="Configuration=$(Configuration);Platform=ARM64" />
   </Target>
