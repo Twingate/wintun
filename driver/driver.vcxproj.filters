@@ -15,17 +15,17 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="wintun.c">
+    <ClCompile Include="twintun.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="wintun.rc">
+    <ResourceCompile Include="twintun.rc">
       <Filter>Resource Files</Filter>
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <Inf Include="wintun.inf">
+    <Inf Include="twintun.inf">
       <Filter>Source Files</Filter>
     </Inf>
   </ItemGroup>

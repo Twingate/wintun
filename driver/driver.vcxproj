@@ -12,7 +12,7 @@
   </PropertyGroup>
   <Import Project="..\wintun.props" />
   <PropertyGroup>
-    <TargetName>wintun</TargetName>
+    <TargetName>twintun</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>
@@ -34,13 +34,13 @@
     </Inf>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="wintun.c" />
+    <ClCompile Include="twintun.c" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="wintun.rc" />
+    <ResourceCompile Include="twintun.rc" />
   </ItemGroup>
   <ItemGroup>
-    <Inf Include="wintun.inf" />
+    <Inf Include="twintun.inf" />
     <FilesToPackage Include="$(TargetPath)" />
   </ItemGroup>
   <ItemGroup>
