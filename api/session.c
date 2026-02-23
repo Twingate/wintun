@@ -302,8 +302,7 @@ WintunSendPacket(TUN_SESSION *Session, const BYTE *Packet)
     if (Session->Descriptor.Receive.Ring->Tail != Session->Receive.TailRelease)
     {
         WriteULongRelease(&Session->Descriptor.Receive.Ring->Tail, Session->Receive.TailRelease);
-        if (ReadAcquire(&Session->Descriptor.Receive.Ring->Alertable))
-            SetEvent(Session->Descriptor.Receive.TailMoved);
+        SetEvent(Session->Descriptor.Receive.TailMoved);
     }
     LeaveCriticalSection(&Session->Receive.Lock);
 }
